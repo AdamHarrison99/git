@@ -14,9 +14,13 @@ __requirements__ ="requirements.txt"
 v1.4 Planned updates: TODO
 Clock
 	Analoge clock option
+	Add 'File' and 'Options' dropdown menus
+		Options-AM/PM or Global: Able to set AM/PM or Global time (no more using big buttons)
+		File-Save: Save Config options (color, size, AM/PM or Global)
 Stopwatch
 	Pause, reset buttons for Stopwatch
 	Make stopwatch resizeable
+	Use dropdown menus
 Maybe?
 	Put clearTerm, sleep, on_press functions into helper file so each separate class doesn't need a new one
 
