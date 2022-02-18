@@ -45,7 +45,7 @@ class Clock:
         self.root = tk.Tk()
         self.root.geometry('700x500')
         self.root.resizable(True, True)
-        self.root.iconbitmap('clock.ico')
+        self.root.iconbitmap('icons/clock.ico')
         style = ttk.Style(self.root)
         style.configure('root.TButton', font = ('calibri', 20, 'bold'))
         self.root.title('Clock')

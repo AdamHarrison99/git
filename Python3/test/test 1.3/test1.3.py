@@ -6,15 +6,11 @@ __author__="Adam Harrison"
 __copyright__="None"
 __license__="Public Domain"
 __version__="1.3"
-__date__="2-17-22"
+__date__="2-18-22"
 __OS__="GNU/Linux & Windows"
 __requirements__ ="requirements.txt"
 
 """
-v1.3 Planned updates:
-TODO:
-Put clearTerm, sleep, on_press functions into helper file so each separate class doesn't need a new one
-
 v1.3 Updates:
 Changed Stopwatch to have a proper UI using tkinter
 Change clock to have proper UI
@@ -28,6 +24,8 @@ Clock
 Stopwatch
 	Pause, reset buttons for Stopwatch
 	Make stopwatch resizeable
+Maybe?
+	Put clearTerm, sleep, on_press functions into helper file so each separate class doesn't need a new one
 """
 
 import sys, os, select, time, random, threading

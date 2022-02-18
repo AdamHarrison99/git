@@ -27,7 +27,7 @@ class Stopwatch:
         self.root = tk.Tk()
         self.root.geometry('500x500')
         self.root.resizable(False, False)
-        self.root.iconbitmap('stopwatch.ico')
+        self.root.iconbitmap('icons/stopwatch.ico')
         style = ttk.Style(self.root)
         style.configure('root.TButton', font = ('calibri', 20, 'bold'))
         self.root.title('Stopwatch')
