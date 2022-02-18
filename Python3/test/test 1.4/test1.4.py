@@ -17,9 +17,12 @@ Clock
 Stopwatch
 	Pause, reset buttons for Stopwatch
 	Make stopwatch resizeable
-	Add miliseconds (again)
 Maybe?
 	Put clearTerm, sleep, on_press functions into helper file so each separate class doesn't need a new one
+
+v1.4 Updates:
+Stopwatch
+	Added miliseconds (again)
 """
 
 import sys, os, select, time, random, threading
