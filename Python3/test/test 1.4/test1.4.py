@@ -27,6 +27,9 @@ Maybe?
 v1.4 Updates:
 Stopwatch
 	Added miliseconds (again)
+	
+Known Issues:
+	finding a file is diffrent between OSs, will fix at some point
 """
 
 import sys, os, select, time, random, threading
