@@ -1,0 +1,10 @@
+Cover Sheet for program3 by Adam Harrison. I did not work with a partner for this assignment.
+
+This program works by first running the hub and then instance(s) of painter1. the painter(s) and hub create a socket connection and if another instance of painter has already created paintingprimative objects, these objects are drawn to the new painter.
+The hub will create a thread to handle new paintingprimatives and chats messages. If a new paintingprimative is created by any painter, it is sent to the thread that then runs the sendObj method to send the object to the painters to print on their GUIs.
+
+The chat is not fully implemented in this program, I have commented out the code that would enable this feature. The reason being that as it is implemented now, it messes with the paintingprimatives.
+The chat is supposed to work like this, the user inputs a string that is then sent to the thread that then sends the string to every painter to then print into the chat windows of every painter open and conected.
+I was having trouble using instanceof in order for the thread to figure out if the obj being sent is a paintingprimative or a string for the chat.
+
+The thread is supposed to check if socket s is closed, socket s being the socket that is assigned to that thread, and then removing the painter from the hub's ossObjList gracefully. This seems to not be working properly. 

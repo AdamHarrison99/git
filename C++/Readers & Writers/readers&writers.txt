@@ -1,0 +1,1 @@
+Implementation of two versions of the readers and writers problem. The first version favors readers and the second version favors writers. 
