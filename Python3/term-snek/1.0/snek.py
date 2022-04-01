@@ -14,11 +14,18 @@ __OS__="GNU/Linux & Windows"
 UNFINISHED
 TODO: Fix non square grid in window_dressing
     Fix body tracking and tail removal in move func
-        -not sure of issue atm
+        -body tracking still one behind where it should be
     Tweak boarder detection
+        -Kinda did that? still a bit weird
     Fix some unknown issue with fruit handler
 
 Add: Game over when head colides with body
+    -in prog?
+
+Using the terminal with pynput makes the input latency terrible.
+This is more of a demonstration rather than a game that is responsive.
+    A proper implementation should't use the terminal. Just wanted to use it anyway.
+Might make the game update slower to give player more time to choose movement option.
 """
 
 import sys, os, time, random
@@ -44,12 +51,12 @@ class Game:
         self.dead = False
 
     def init_board(self):
-        if len(sys.argv) >= 2:
+        if len(sys.argv) >= 1:
             self.xSize = int(sys.argv[1])
-            self.ySize = int(sys.argv[2])
+            self.ySize = int(sys.argv[1])
         else:
-            self.xSize = int(input("Define size x "))
-            self.ySize = int(input("Define size y "))
+            self.xSize = int(input("Define size"))
+            self.ySize = self.xSize
 
         for i in range(0,self.xSize):
             self.board.append([])
@@ -70,7 +77,7 @@ class Game:
         while(True):
             if self.dead == True:
                 break
-            #self.clearTerm()
+            self.clearTerm()
             self.fruit_handler()
             self.print_board()
             self.print_points()
@@ -78,7 +85,6 @@ class Game:
             print(self.curDir)
             self.sleep(1)
 
-        print("Game Over")
     def window_dressing(self):
         horDressing = ["\n "]
         for i in range(0, self.xSize*3):
@@ -117,6 +123,10 @@ class Game:
         print(self.headX, self.headY)
         print(self.body)
 
+        if self.headX == 0 or self.headX == self.xSize or self.headY == 1 or self.headY == self.ySize + 1:
+            print("Hit Wall")
+            self.game_over()
+
         if self.curDir == "up":
             self.body.append((self.headX + self.points, self.headY))
             self.headX -= 1
@@ -133,12 +143,17 @@ class Game:
             self.body.append((self.headX, self.headY - self.points))
             self.headY += 1
 
-        if self.headX == 0 or self.headX == self.xSize or self.headY == 0 or self.headY == self.ySize:
-            self.game_over()
+        for i in self.body:
+            if i[0] == self.headX and i[1] == self.headY:
+                print("Hit Body")
+                self.game_over()
 
-        if len(self.body) > self.points + 1:
-            self.board[self.body[0][0]][self.body[0][1]] = " . "
-            self.body.pop(0)
+        if len(self.body) > self.points:
+            if self.board[self.body[0][0]][self.body[0][1]] != " \u25A1 " and self.board[self.body[0][0]][self.body[0][1]] != " o ":
+                self.body.pop(0)
+            else:
+                self.board[self.body[0][0]][self.body[0][1]] = " . "
+                self.body.pop(0)
         else:
             self.board[self.body[0][0]][self.body[0][1]] = " . "
 
@@ -149,6 +164,7 @@ class Game:
 
     def game_over(self):
         self.dead = True
+        print("Game Over")
 
     def on_press(self, key):
         if key == keyboard.Key.esc:
