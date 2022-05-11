@@ -1,6 +1,5 @@
 import random as rand
-
-
+#this is a test
 if __name__ == '__main__':
     #settup vars
     n = []
@@ -15,7 +14,7 @@ if __name__ == '__main__':
 
     for i in n:
         if i == last_int:
-            #last var in occur_more_than_once 
+            #last var in occur_more_than_once
             if occur_more_than_once[-1] != i:
                 occur_more_than_once.append(i)
         last_int = i
