@@ -15,6 +15,7 @@ UNFINISHED
 TODO: Fix non square grid in window_dressing
     Fix body tracking and tail removal in move func
         -body tracking still one behind where it should be
+        -might be issue with body printing rather than tracking
     Tweak boarder detection
         -Kinda did that? still a bit weird
     Fix some unknown issue with fruit handler
@@ -148,7 +149,7 @@ class Game:
                 print("Hit Body")
                 self.game_over()
 
-        if len(self.body) > self.points:
+        if len(self.body) >= self.points:
             if self.board[self.body[0][0]][self.body[0][1]] != " \u25A1 " and self.board[self.body[0][0]][self.body[0][1]] != " o ":
                 self.body.pop(0)
             else:
