@@ -1,5 +1,5 @@
 import random as rand
-#this is a test
+
 if __name__ == '__main__':
     #settup vars
     n = []
