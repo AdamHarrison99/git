@@ -24,7 +24,7 @@ Add: Game over when head colides with body
     -in prog?
 
 Using the terminal with pynput makes the input latency terrible.
-This is more of a demonstration rather than a game that is responsive.
+This is more of a demonstration rather than a proper implementation.
     A proper implementation should't use the terminal. Just wanted to use it anyway.
 Might make the game update slower to give player more time to choose movement option.
 """
