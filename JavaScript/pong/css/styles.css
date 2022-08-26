@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000;
+    font-family: "Helvetica", Helvetica, Sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    height: 85vh;
+    width: 80vw;
+    background-color: #000000;
+    border-radius: 14px;
+    box-shadow: 0 0 0 1pt white;
+    outline: none;
+    transition: .1s;
+}
+
+.ball {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: fixed;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+}
+
+.ball_effect {
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    animation: spinBall 1.0s linear infinite;
+    box-shadow: inset 0 0 18px #fff,
+        inset 6px 0 18px violet,
+        inset -6px 0 18px #0ff,
+        inset 6px 0 30px violet,
+        inset -6px 0 30px #0ff,
+        0 0 18px #fff, -4px 0 18px
+        violet, 4px 0 18px #0ff;
+}
+
+@keyframes spinBall {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.paddle {
+    height: 100px;
+    width: 18px;
+    border-radius: 0%;
+    position: fixed;
+}
+
+.paddle_1 {
+    top: calc(7.5vh + 55px);
+    left: calc(10vw + 30px);
+    box-shadow: inset 0 0 18px #fff,
+        inset -6px 0 18px #ffffff,
+        inset 6px 0 18px #ffffff,
+        inset -6px 0 30px #0ff,
+        inset 6px 0 30px #ffffff,
+        0 0 18px #fff, 4px 0 18px
+        #0ff, -4px 0 18px #0ff;
+}
+
+.paddle_2 {
+    top: calc(85vh + 7.5vh - 100px - 55px);
+    right: calc(10vw + 30px);
+    box-shadow: inset 0 0 18px #fff,
+        inset 6px 0 18px #ffffff,
+        inset -6px 0 18px #ffffff,
+        inset 6px 0 30px violet,
+        inset -6px 0 30px #ffffff,
+        0 0 18px #fff, -4px 0 18px
+        violet, 4px 0 18px violet;
+}
+
+.player_1_score {
+    height: 50px;
+    width: 100px;
+    color: white;
+    position: fixed;
+    text-align: left;
+    left: 15vw;
+    margin-top: 30px;
+}
+
+.player_2_score {
+    height: 50px;
+    width: 100px;
+    color: white;
+    position: fixed;
+    text-align: right;
+    right: 15vw;
+    margin-top: 30px;
+}
+
+.message {
+    position: center;
+    text-align: center;
+    height: 10vh;
+    width: 30vw;
+    color: white;
+    margin: 30px auto auto auto;
+}
+
+.p1_controls {
+    position: fixed;
+    text-align: left;
+    height: 10vh;
+    width: 30vw;
+    color: white;
+    bottom: 40px;
+    left: 15vw;
+    font-size: 15px;
+}
+
+.p2_controls {
+    position: fixed;
+    text-align: right;
+    height: 10vh;
+    width: 30vw;
+    color: white;
+    bottom: 40px;
+    right: 15vw;
+    font-size: 15px;
+}
