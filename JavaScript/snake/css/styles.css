@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #000000;
+  font-family: "Helvetica", Helvetica, Sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  display: grid;
+  height:90vh;
+  width:90vh;
+  background-color: #000000;
+
+  box-shadow: 0 0 0 1pt white;
+  outline: none;
+  transition: .1s;
+
+  grid-template-columns: repeat(50, 1fr);
+  grid-template-rows: repeat(50, 1fr);
+  grid-gap: 1px;
+}
+
+.fruit{
+  width: 100%;
+  height: 100%;
+}
+
+.snake{
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  grid-column-start: 25;
+  grid-column-end: 25;
+  grid-row-start: 25;
+  grid-row-end: 25;
+}
+
+.message{
+  position: fixed;
+  text-align: center;
+  top: 40px;
+  height: 10vh;
+  width: 30vw;
+  color: white;
+  margin: 30px auto auto auto;
+}
+.score{
+  position: fixed;
+  text-align: left;
+  height: 10vh;
+  width: 30vw;
+  color: white;
+  top: 40px;
+  left: 15vw;
+}
+
+.controls{
+  position: fixed;
+  text-align: left;
+  height: 10vh;
+  width: 30vw;
+  color: white;
+  bottom: 40px;
+  left: 15vw;
+  font-size: 15px;
+}
