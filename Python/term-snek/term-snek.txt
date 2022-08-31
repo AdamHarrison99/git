@@ -1,1 +1,0 @@
-A bad python\terminal implementation of the classic game Snake 
