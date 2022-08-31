@@ -24,8 +24,8 @@ body {
   outline: none;
   transition: .1s;
 
-  grid-template-columns: repeat(50, 1fr);
-  grid-template-rows: repeat(50, 1fr);
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(30, 1fr);
   grid-gap: 1px;
 }
 
@@ -37,11 +37,6 @@ body {
 .snake{
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
-  grid-column-start: 25;
-  grid-column-end: 25;
-  grid-row-start: 25;
-  grid-row-end: 25;
 }
 
 .message{

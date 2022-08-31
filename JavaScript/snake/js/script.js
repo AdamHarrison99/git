@@ -5,18 +5,22 @@ let fruit = document.querySelector('.fruit');
 let message = document.querySelector('.message')
 let score = document.querySelector('.score')
 let isMoving = 'up';
-let x = 25;
-let y = 25;
-let fruitX = 5;
-let fruitY = 5;
+let lastDirection = 'none';
+let boardSize = 30;
+let frameTime = 200;
+let x = boardSize/2;
+let y = boardSize/2;
+let fruitX = 0;
+let fruitY = 0;
 let scoreCounter = 0;
 let tail = new Array();
+let oldPos = new Array();
 
 document.addEventListener('keydown', (e) => {
   if (e.key == 'Enter') {
-    gameState = 'play'
+    gameState = 'play';
     message.innerHTML = '';
-
+    snake.style.backgroundColor = '#ffffff'
     fruit.style.backgroundColor = '#7CFC00';
 
     //controls.style.visibility = "hidden";
@@ -38,45 +42,43 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-function move(){ //TODO dont let player go backwards
+function move(){
   tailAdd();
   switch(isMoving){
     case 'up':
-      y--;
-      snake.style.gridColumnStart = x;
-      snake.style.gridColumnEnd = x;
-      snake.style.gridRowStart = y;
-      snake.style.gridRowEnd = y;
-      break;
+      if (lastDirection == 'down'){y++;} else {y--;lastDirection = isMoving;}break;
     case 'down':
-      y++;
-      snake.style.gridColumnStart = x;
-      snake.style.gridColumnEnd = x;
-      snake.style.gridRowStart = y;
-      snake.style.gridRowEnd = y;
-      break;
+      if (lastDirection == 'up'){y--;} else {y++;lastDirection = isMoving;}break;
     case 'left':
-      x--;
-      snake.style.gridColumnStart = x;
-      snake.style.gridColumnEnd = x;
-      snake.style.gridRowStart = y;
-      snake.style.gridRowEnd = y;
-      break;
+      if (lastDirection == 'right'){x++;} else {x--;lastDirection = isMoving;}break;
     case 'right':
-      x++;
-      snake.style.gridColumnStart = x;
-      snake.style.gridColumnEnd = x;
-      snake.style.gridRowStart = y;
-      snake.style.gridRowEnd = y;
-      break;
+      if (lastDirection == 'left'){x--;} else {x++;lastDirection = isMoving;}break;
   }
+  snake.style.gridColumnStart = x;
+  snake.style.gridColumnEnd = x;
+  snake.style.gridRowStart = y;
+  snake.style.gridRowEnd = y;
+
+//wall detection
+  if (x > boardSize || y > boardSize || x <= 0 || y <= 0){
+    gameState = 'over';
+  }
+
+//tail detection
+  for (var i=0; i<oldPos.length; i++){
+    //console.log("x,y:", x, y);
+    //console.log("oldPos:", oldPos[i][0], oldPos[i][1])
+    if (oldPos[i][0] == x && oldPos[i][1] == y){
+      gameState = 'over';
+      //console.log("over");
+    }
+  }
+
   var element = tail.pop();
+  oldPos.pop();
   //console.log(element);
   element.remove();
 
-  if (x > 50 || y > 50 || x <= 0 || y <= 0){
-    gameState = 'over';
-  }
   requestAnimationFrame(() => {game();});
 }
 
@@ -90,15 +92,14 @@ if (checkFruit() == true){
   resetFruit();
 }
 move();
-tailCollisionDetection();
-sleep(300);
+sleep(frameTime);
 }
 
 function resetFruit(){
-  fruitX = Math.floor(Math.random() * 50);
-  fruitY = Math.floor(Math.random() * 50);
+  fruitX = Math.floor(Math.random() * boardSize);
+  fruitY = Math.floor(Math.random() * boardSize);
   if (checkFruit() == true){
-    if (fruitY == 50 && fruitX == 50){
+    if (fruitY == boardSize && fruitX == boardSize){
       fruitX--;
       fruitY--;
     } else {
@@ -139,13 +140,10 @@ function tailAdd(){
   cell.style.gridRowEnd = y;
 
   tail.unshift(cell);
+  oldPos.unshift([x,y]);
   /*for (var i = 0; i < tail.length; i++){
     console.log(tail[i]);
   }*/
-}
-
-function tailCollisionDetection(){ //TODO this
-  
 }
 
 function sleep(milliseconds) {
