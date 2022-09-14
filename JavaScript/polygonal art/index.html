@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ART</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css\styles.css">
+</head>
+
+<body>
+  <div class="board">
+  <div class="leftControls"></div>
+    <h1 class="size">Size: <span id="sizeValueNum"></span></h1>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="100" value="50" class="sizeSlider">
+    </div>
+
+    <h1 class="complexity">Complexity: <span id="complexityValueNum"></span></h1>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="100" value="50" class="complexitySlider">
+    </div>
+
+    <h1 class="color">Color: <span id="colorValueNum"></span></h1>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="100" value="50" class="colorSlider">
+    </div>
+  <div class="rightControls"></div>
+  </div>
+  <h1 class="message">Polygonal Art Generator</h1>
+  <script src="js/script.js"></script>
+</body>
+</html>
