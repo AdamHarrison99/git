@@ -1,1 +1,1 @@
-program that generated polygonal style art from user input
+program that generates polygonal style art from user input
