@@ -9,8 +9,7 @@
 </head>
 
 <body>
-  <div class="board">
-  <div class="leftControls"></div>
+  <div class="leftControls">
     <h1 class="size">Size: <span id="sizeValueNum"></span></h1>
     <div class="slidecontainer">
       <input type="range" min="1" max="100" value="50" class="sizeSlider">
@@ -25,7 +24,16 @@
     <div class="slidecontainer">
       <input type="range" min="1" max="100" value="50" class="colorSlider">
     </div>
-  <div class="rightControls"></div>
+    <input class"save-button" id="save" type="image" src="https://www.downloadclipart.net/large/save-button-png-transparent-file.png" onclick="save(event)"/>
+  </div>
+  <div class="board"></div>
+  <div class="rightControls">
+    <label for="file-upload" class="custom-file-upload">
+      <i class="image-upload"></i> Upload File
+    </label>
+    <input id="file-upload" type="file" multiple="false" accept="image/*" onchange="loadImage(event)"/>
+    <div class="image-canvas"><img id="image"/></div>
+    <input class"reset-button" id="reset" type="image" src="https://cdn.onlinewebfonts.com/svg/img_346043.png" onclick="reset(event)"/>
   </div>
   <h1 class="message">Polygonal Art Generator</h1>
   <script src="js/script.js"></script>

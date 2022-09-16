@@ -29,39 +29,6 @@ body {
   grid-gap: 1px;
 }
 
-.size{
-  position: fixed;
-  text-align: left;
-  height: 10vh;
-  width: 30vw;
-  color: white;
-  top: 20vh;
-  left: 15vw;
-  font-size: 15px;
-}
-
-.complexity{
-  position: fixed;
-  text-align: left;
-  height: 10vh;
-  width: 30vw;
-  color: white;
-  top: 30vh;
-  left: 15vw;
-  font-size: 15px;
-}
-
-.color{
-  position: fixed;
-  text-align: left;
-  height: 10vh;
-  width: 30vw;
-  color: white;
-  top: 40vh;
-  left: 15vw;
-  font-size: 15px;
-}
-
 .message{
   position: fixed;
   text-align: center;
@@ -72,12 +39,50 @@ body {
   margin: 30px auto auto auto;
 }
 
+.leftControls{
+  position: relative;
+  height:70vh;
+  width:25vh;
+  background-color: #000000;
+  box-shadow: 0 0 0 1pt white;
+  outline: none;
+  transition: .1s;
+
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(30, 1fr);
+  grid-gap: 1px;
+}
+
+.size{
+  text-align: left;
+  height: 30px;
+  width: 30vw;
+  color: white;
+  top: 20vh;
+  font-size: 15px;
+}
+
+.complexity{
+  text-align: left;
+  height: 30px;
+  width: 30vw;
+  color: white;
+  top: 30vh;
+  font-size: 15px;
+}
+
+.color{
+  text-align: left;
+  height: 30px;
+  width: 30vw;
+  color: white;
+  top: 40vh;
+  font-size: 15px;
+}
+
 .sizeSlider {
-  position: fixed;
-  top: 25vh;
-  left: 15vw;
   -webkit-appearance: none;
-  width: 200px;
+  width: 21vh;
   height: 10px;
   border-radius: 5px;
   background: #d3d3d3;
@@ -85,6 +90,8 @@ body {
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  margin-bottom: 30px;
+  margin-left: 2vh;
 }
 
 .sizeSlider:hover {
@@ -110,11 +117,8 @@ body {
 }
 
 .complexitySlider {
-  position: fixed;
-  top: 35vh;
-  left: 15vw;
   -webkit-appearance: none;
-  width: 200px;
+  width: 21vh;
   height: 10px;
   border-radius: 5px;
   background: #d3d3d3;
@@ -122,6 +126,8 @@ body {
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  margin-bottom: 30px;
+  margin-left: 2vh;
 }
 
 .complexitySlider:hover {
@@ -147,11 +153,8 @@ body {
 }
 
 .colorSlider {
-  position: fixed;
-  top: 45vh;
-  left: 15vw;
   -webkit-appearance: none;
-  width: 200px;
+  width: 21vh;
   height: 10px;
   border-radius: 5px;
   background: #d3d3d3;
@@ -159,6 +162,8 @@ body {
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  margin-bottom: 30px;
+  margin-left: 2vh;
 }
 
 .colorSlider:hover {
@@ -181,4 +186,81 @@ body {
   border-radius: 50%;
   background: #04AA6D;
   cursor: pointer;
+}
+
+#save{
+  position: absolute;
+  right: 10vh;
+  top: 54vh;
+}
+
+.rightControls {
+  position: relative;
+  float: right;
+  height:70vh;
+  width:25vh;
+  background-color: #000000;
+  box-shadow: 0 0 0 1pt white;
+  outline: none;
+  transition: .1s;
+
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(30, 1fr);
+  grid-gap: 1px;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+  color: white;
+  border: 1px solid white;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin: 1vh;
+  display: flex;
+  justify-content: center;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.custom-file-upload:hover{
+  opacity: 1;
+}
+
+.image-canvas{
+  border: 1px solid white;
+  margin: 1vh;
+  display: flex;
+  justify-content: center;
+  height: 24vh;
+}
+
+#image{
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
+
+#reset{
+  position: absolute;
+  left: 10vh;
+  top: 54vh;
+}
+
+input[type='image'] {
+  padding: 6px;
+  margin: 10px;
+  width: 12vh;
+  margin-top: 1rem;
+  filter: invert(1);
+  box-shadow: 0 0 0 1pt black;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+input[type='image']:hover{
+  opacity: 1;
 }
