@@ -15,7 +15,7 @@ body {
 }
 
 .board {
-  display: grid;
+  object-fit: fill;
   height:70vh;
   width:70vh;
   background-color: #000000;
@@ -27,6 +27,11 @@ body {
   grid-template-columns: repeat(30, 1fr);
   grid-template-rows: repeat(30, 1fr);
   grid-gap: 1px;
+}
+
+#art-canvas{
+  height:70vh;
+  width:70vh;
 }
 
 .message{
