@@ -29,17 +29,17 @@ board.appendChild(mySVG);
 
 sizeSlider.oninput = function() {
   sizeVal.innerHTML = sizeSlider.value;
-  optionsUpdate()
+  optionsUpdate();
 }
 
 complexitySlider.oninput = function() {
   complexityVal.innerHTML = complexitySlider.value;
-  optionsUpdate()
+  optionsUpdate();
 }
 
 colorSlider.oninput = function() {
   colorVal.innerHTML = colorSlider.value;
-  optionsUpdate()
+  optionsUpdate();
 }
 
 function optionsUpdate(){
@@ -53,14 +53,22 @@ var loadImage = function(event){
   imageCanvas.src = URL.createObjectURL(event.target.files[0]);
 }
 
-window.addEventListener("resize", function(event) {
+/*window.addEventListener("resize", function(event) {
   console.log(document.body.clientWidth + ' wide by ' + document.body.clientHeight+' high');
-})
+})*/
 
-function save(event){
-  return 0;
+function save(event){ //NOTE saves image but its slightly off center?
+  //console.log(board.offsetWidth + ' wide by ' + board.offsetWidth +' high')
+  domtoimage.toJpeg(document.querySelector(".board"), { quality: 0.95, height: board.offsetWidth, width: board.offsetWidth })
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'Polygonal Art.jpeg';
+        link.href = dataUrl;
+        link.click();
+    });
 }
 
 function reset(event){
-  location.reload();
+  randColors = [];
+  optionsUpdate();
 }

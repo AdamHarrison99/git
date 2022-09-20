@@ -24,7 +24,7 @@
     <div class="slidecontainer">
       <input type="range" min="1" max="10" value="5" class="colorSlider">
     </div>
-    <input class"save-button" id="save" type="image" src="https://www.downloadclipart.net/large/save-button-png-transparent-file.png" onclick="save(event)"/>
+    <input class"reset-button" id="reset" type="image" src="https://cdn.onlinewebfonts.com/svg/img_346043.png" onclick="reset(event)"/>
   </div>
   <div class="board"></div>
   <div class="rightControls">
@@ -33,10 +33,12 @@
     </label>
     <input id="file-upload" type="file" multiple="false" accept="image/*" onchange="loadImage(event)"/>
     <div class="image-canvas"><img id="image"/></div>
-    <input class"reset-button" id="reset" type="image" src="https://cdn.onlinewebfonts.com/svg/img_346043.png" onclick="reset(event)"/>
+    <input class"save-button" id="save" type="image" src="https://www.downloadclipart.net/large/save-button-png-transparent-file.png" onclick="save(event)"/>
   </div>
   <h1 class="message">Polygonal Art Generator</h1>
   <script src="js/triangulr.js"></script>
+  <script src="js/fabric.min.js"></script>
+  <script src="js/dom-to-image.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

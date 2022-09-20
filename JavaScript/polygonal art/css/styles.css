@@ -193,7 +193,7 @@ body {
   cursor: pointer;
 }
 
-#save{
+#reset{
   position: absolute;
   right: 10vh;
   top: 54vh;
@@ -248,7 +248,7 @@ input[type="file"] {
   object-fit: scale-down;
 }
 
-#reset{
+#save{
   position: absolute;
   left: 10vh;
   top: 54vh;
