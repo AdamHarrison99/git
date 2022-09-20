@@ -6,13 +6,19 @@ var complexityVal = document.getElementById("complexityValueNum");
 var colorVal = document.getElementById("colorValueNum");
 var imageCanvas = document.getElementById("image")
 var board = document.querySelector(".board");
+var randColors = [];
 
 var colorGenerator = function (path) { //TODO randomness from colorSlider.value as seed. Lower colorSlider.value = less color change. Higher colorSlider.value = large color change between polygons
-  var random = Number(colorSlider.value);
-  var ratio = (path.x * path.y) / (path.cols * path.lines);
-  var code = Math.floor(255 - (ratio * (255-random)) - Math.random()*random).toString(16);
-  /*return '#'+code+code+code;*/
-  return '#'+Math.floor(Math.random()*16777215).toString(16);
+  if (randColors.length < colorSlider.value){
+    randColors.push('#'+ ("00000" + Math.floor(Math.random() * Math.pow(16, 6)).toString(16)).slice(-6));
+    colorGenerator();
+  }
+  if (randColors.length > colorSlider.value){
+    randColors.pop();
+    colorGenerator();
+  }
+
+  return (randColors[Math.floor(Math.random()*randColors.length).toString(16)]);
 };
 
 sizeVal.innerHTML = sizeSlider.value;
