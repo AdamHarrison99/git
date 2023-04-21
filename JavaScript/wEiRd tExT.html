@@ -4,8 +4,8 @@
 
 <h1>wEiRd tExT gEnErAtOr</h1>
 
-<label for="fname">Insert text to be wEiRd-iFiEd: </label>
-<input type="text" id="input" name="input"><br><br>
+<label for="fname">Insert text to be wEiRd-iFiEd: </label><br>
+<textarea type="text" id="input" name="input" rows="4" cols="44"></textarea><br><br>
 <button type="button" id="myBtn" onclick="weirdText()">
     Submit
 </button>
@@ -16,7 +16,7 @@
   function weirdText(){
     var charCase = "lower"; var weird_string = "";
     const text = document.getElementById('input').value;
-    let i = ""
+    let i = "";
       for (i; i < text.length; i++){
         if (charCase == "lower"){
           weird_string += text.charAt(i).toLowerCase();
