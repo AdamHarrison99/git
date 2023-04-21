@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>wEiRd tExT gEnErAtOr</h1>
+
+<label for="fname">Insert text to be wEiRd-iFiEd: </label>
+<input type="text" id="input" name="input"><br><br>
+<button type="button" id="myBtn" onclick="weirdText()">
+    Submit
+</button>
+<br><br>
+<label id="out"></label>
+
+<script>
+  function weirdText(){
+    var charCase = "lower"; var weird_string = "";
+    const text = document.getElementById('input').value;
+    let i = ""
+      for (i; i < text.length; i++){
+        if (charCase == "lower"){
+          weird_string += text.charAt(i).toLowerCase();
+          charCase = "upper";
+        } else {
+            weird_string += text.charAt(i).toUpperCase();
+            charCase = "lower";
+            }
+          }
+    document.getElementById('out').innerHTML = weird_string;
+};
+
+var input = document.getElementById("input");
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("myBtn").click();
+  }
+});
+</script>
+</body>
+</html>
