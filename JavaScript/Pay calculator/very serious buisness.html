@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style> 
+body {background-color: black; color: white;}
+</style>
+<h1>Very Buisness Calculation Yes</h1>
+<p>Doesn't consider progressive tax</p>
+
+<label>Input money per hr: </label><br>
+<textarea type="text" id="input_hr_pay" name="input_1" rows="1" cols="10"></textarea><br><br>
+<label>Hrs per day: </label><br>
+<textarea type="text" id="input_hr_worked" name="input_2" rows="1" cols="10">8</textarea><br><br>
+<label>Tax %: </label><br>
+<textarea type="text" id="input_tax_percent" name="input_3" rows="1" cols="10">25</textarea><br><br>
+<label>Savings split %: </label><br>
+<textarea type="text" id="input_savings_split" name="input_4" rows="1" cols="10">20</textarea><br><br>
+<label>Pay period (weeks): </label><br>
+<textarea type="text" id="pay_period" name="input_5" rows="1" cols="10">2</textarea><br><br>
+<button type="button" id="myBtn" onclick="weirdText()">
+    Submit
+</button>
+<br><br>
+<label>Output: </label><br>
+<textarea id="out" rows="5" cols="20"></textarea>
+
+<script>
+  function weirdText(){
+    const input_hr_pay = document.getElementById('input_hr_pay').value;
+	const input_tax_percent = document.getElementById('input_tax_percent').value/100;
+	const input_savings_split = document.getElementById('input_savings_split').value/100;
+	const pay_period = document.getElementById('pay_period').value;
+	const input_hr_worked = document.getElementById('input_hr_worked').value*(pay_period*5);
+	var total = input_hr_pay*input_hr_worked;
+    var tax_out = total*input_tax_percent;
+	var after_tax = total - tax_out;
+	var savings = after_tax*input_savings_split;
+	var checking = after_tax - savings;
+    document.getElementById('out').innerHTML = "Per Paycheck: $" + total + "\nAfter Tax: $" + after_tax +"\nTaxes: $" + tax_out + "\nTo Checking: $" + checking + "\nTo Savings: $" + savings;
+};
+
+var input = document.getElementById("input_hr_worked");
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("myBtn").click();
+  }
+});
+</script>
+</body>
+</html>

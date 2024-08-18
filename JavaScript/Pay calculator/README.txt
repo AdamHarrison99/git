@@ -1,0 +1,2 @@
+a small JS program that will automatically calculate taxes, per paycheck pay, and how much $ will be deposited into a checking and savings account
+you can mess with the numbers to fit whatever scenario you'd like. 
