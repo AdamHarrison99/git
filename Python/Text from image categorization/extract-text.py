@@ -34,7 +34,7 @@ for root, dirs, files in os.walk(directory):
         thresh = 255 - cv2.threshold(image, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
 
         #TODO get top slice of image rather than course selection. Needs to beable to work with varying resolutions
-        x,y,w,h = 151,88,1172,218
+        x,y,w,h = 144,7,1072,169
         ROI = thresh[y:y+h,x:x+w]
 
         #image to string
@@ -48,7 +48,7 @@ for root, dirs, files in os.walk(directory):
         result = result.replace(" ", "").replace("\n", "")
 
         #create our new path
-        new_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),result)
+        new_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),"test-dir", result)
         print("Found name:", result)
 
         #create our new folder if not exist

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style> 
+body {background-color: black; color: white;}
+</style>
+<h1>Very Buisness Calculation Yes</h1>
+
+<label>Input money per hr: </label><br>
+<textarea type="text" id="input_hr_pay" name="input_1" rows="1" cols="10"></textarea><br><br>
+<label>Hrs Worked: </label><br>
+<textarea type="text" id="input_hr_worked" name="input_2" rows="1" cols="10"></textarea><br><br>
+<button type="button" id="myBtn" onclick="weirdText()">
+    Submit
+</button>
+<br><br>
+<label>Output: </label><br>
+<textarea id="out" rows="5" cols="20"></textarea>
+
+<script>
+  function weirdText(){
+    const input_hr_pay = document.getElementById('input_hr_pay').value;
+	const input_hr_worked = document.getElementById('input_hr_worked').value;
+	var total = input_hr_pay*input_hr_worked;
+    var tax_out = total*0.25;
+	var after_tax = total - (total*0.25);
+	var split = (total - (total*0.25))/2;
+    document.getElementById('out').innerHTML = "Per Paycheck: " + total + "\nAfter Tax: " + after_tax +"\nTaxes: " + tax_out + "\nPer Acc: " + split;
+};
+
+var input = document.getElementById("input_hr_worked");
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("myBtn").click();
+  }
+});
+</script>
+</body>
+</html>
